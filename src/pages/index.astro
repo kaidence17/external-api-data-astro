@@ -1,5 +1,14 @@
 ---
+// Import Stylesheet
+import '../styles/global.css';
 
+
+// data source
+const source = 'https://www.csscolorsapi.com/api/colors';
+// fetch the data
+const res = await fetch(source); 
+// store retreived data
+const data = await res.json();
 ---
 
 <html lang="en">
@@ -11,6 +20,38 @@
 		<title>Retreive and and display external API data with Astro</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		
+		<header class="masthead">
+			<h1 class="site-title">Gallery</h1>
+		</header>
+
+		<main id="content" class="main-area">
+
+			<ul class="cards">
+		  
+				{
+					data.colors.map( item => 
+
+				<li class="card-item" style={{ background: '#' + item.hex }}>
+				<a href="#">
+				  <figure class="card">
+					<figcaption class="caption">
+					  <h3 class="caption-title">{item.name}</h3>
+					  <p>Description Lorem ipsum dolor sit.</p>
+					</figcaption>
+				  </figure>
+				</a>
+			  </li>
+				
+				)
+				}			
+		
+
+		  
+			</ul>
+		  </main>
+		  
+
+
 	</body>
 </html>
