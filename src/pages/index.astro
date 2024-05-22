@@ -3,8 +3,9 @@
 import '../styles/global.css';
 
 
+
 // data source
-const source = 'https://www.csscolorsapi.com/api/colors';
+const source = '';
 // fetch the data
 const res = await fetch(source); 
 // store retreived data
@@ -17,6 +18,9 @@ const data = await res.json();
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+
 		<title>Retreive and and display external API data with Astro</title>
 	</head>
 	<body>
@@ -29,23 +33,7 @@ const data = await res.json();
 
 			<ul class="cards">
 		  
-				{
-					data.colors.map( item => 
-
-				<li class="card-item" style={{ background: '#' + item.hex }}>
-				<a href="#">
-				  <figure class="card">
-					<figcaption class="caption">
-					  <h3 class="caption-title">{item.name}</h3>
-					  <p>Description Lorem ipsum dolor sit.</p>
-					</figcaption>
-				  </figure>
-				</a>
-			  </li>
-				
-				)
-				}			
-		
+				<!-- Your API Data -->
 
 		  
 			</ul>
