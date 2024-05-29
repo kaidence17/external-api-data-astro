@@ -2,10 +2,9 @@
 // Import Stylesheet
 import '../styles/global.css';
 
-
-
 // data source
-const source = '';
+// replace temporary JSON placeholder API
+const source = 'https://jsonplaceholder.typicode.com/users';
 // fetch the data
 const res = await fetch(source); 
 // store retreived data
@@ -19,6 +18,7 @@ const data = await res.json();
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 
+		<!-- Normalize CSS -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 
 		<title>Retreive and and display external API data with Astro</title>
@@ -34,7 +34,21 @@ const data = await res.json();
 			<ul class="cards">
 		  
 				<!-- Your API Data -->
-
+				{
+					data.map( item =>
+					<li class="card-item">
+						<a href="#">
+							<figure class="card">
+							<img src="https://assets.codepen.io/16425/image-placeholder.png" alt="Placeholder">
+							<figcaption class="caption">
+								<h3 class="caption-title">{item.name}</h3>
+								<p>{item.company.catchPhrase}</p>
+							</figcaption>
+							</figure>
+						</a>
+					</li> 
+					)
+				}
 		  
 			</ul>
 		  </main>
