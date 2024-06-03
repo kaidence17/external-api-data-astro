@@ -39,8 +39,8 @@ const data = await res.json();
 					<li class="card-item">
 						<a href="#">
 							<figure class="card">
-							<img src="https://valorant-api.com/v1/buddies" alt="Placeholder">
-							<figcaption class="caption">
+							<img src={item.displayIcon} alt="Placeholder">
+							<figcaption class="caption"> 
 								<h3 class="caption-title">{item.displayName}</h3>
 								<p>{item.assetPath}</p>
 							</figcaption>
